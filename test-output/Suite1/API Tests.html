@@ -1,0 +1,175 @@
+<html>
+<head>
+<title>TestNG:  API Tests</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>API Tests</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>19/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Dec 28 11:43:36 GST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>21 seconds (21473 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.api.test.CreateJobITestContext.createjobTest()'><b>createjobTest</b><br>Test class: com.api.test.CreateJobITestContext<br>Test method: test create job api requests generates job number<br>Parameters: org.testng.TestRunner@7b44bfb8</td>
+<td></td>
+<td>1</td>
+<td>com.api.test.CreateJobITestContext@39dcf4b0</td></tr>
+<tr>
+<td title='com.api.test.qcdeliver.createjobTest()'><b>createjobTest</b><br>Test class: com.api.test.qcdeliver<br>Test method: test create job api requests generates job number</td>
+<td></td>
+<td>1</td>
+<td>com.api.test.qcdeliver@1c9f0a20</td></tr>
+<tr>
+<td title='com.api.test.QCcheck.createjobTest()'><b>createjobTest</b><br>Test class: com.api.test.QCcheck<br>Test method: test create job api requests generates job number</td>
+<td></td>
+<td>1</td>
+<td>com.api.test.QCcheck@162be91c</td></tr>
+<tr>
+<td title='com.api.test.QCcompleted.createjobTest()'><b>createjobTest</b><br>Test class: com.api.test.QCcompleted<br>Test method: test create job api requests generates job number<br>Parameters: org.testng.TestRunner@7b44bfb8</td>
+<td></td>
+<td>0</td>
+<td>com.api.test.QCcompleted@2488b073</td></tr>
+<tr>
+<td title='com.api.test.LoginAPIrequest3.loginAPITest()'><b>loginAPITest</b><br>Test class: com.api.test.LoginAPIrequest3<br>Test method: login api request</td>
+<td></td>
+<td>4</td>
+<td>com.api.test.LoginAPIrequest3@470a696f</td></tr>
+<tr>
+<td title='com.api.test.Master.masterData()'><b>masterData</b><br>Test class: com.api.test.Master<br>Test method: Masterdata</td>
+<td></td>
+<td>0</td>
+<td>com.api.test.Master@59d2103b</td></tr>
+<tr>
+<td title='com.api.test.LoginasEng.loginAPITest()'><b>loginAPITest</b><br>Test class: com.api.test.LoginasEng<br>Test method: login api request</td>
+<td></td>
+<td>0</td>
+<td>com.api.test.LoginasEng@1991f767</td></tr>
+<tr>
+<td title='com.api.test.LoginasSupervisor.LoginAsSpervisor()'><b>LoginAsSpervisor</b><br>Test class: com.api.test.LoginasSupervisor<br>Test method: Login as Supervisor</td>
+<td></td>
+<td>0</td>
+<td>com.api.test.LoginasSupervisor@6e4de19b</td></tr>
+<tr>
+<td title='com.api.test.PendingjobstoAssign.MappedEngineerUnderSupervisor()'><b>MappedEngineerUnderSupervisor</b><br>Test class: com.api.test.PendingjobstoAssign<br>Test method: pending jobs to assign to engineer</td>
+<td></td>
+<td>2</td>
+<td>com.api.test.PendingjobstoAssign@f6c03cb</td></tr>
+<tr>
+<td title='com.api.test.AssignjobtoEngineer.createjobTest()'><b>createjobTest</b><br>Test class: com.api.test.AssignjobtoEngineer<br>Test method: test create job api requests generates job number<br>Parameters: org.testng.TestRunner@7b44bfb8</td>
+<td></td>
+<td>0</td>
+<td>com.api.test.AssignjobtoEngineer@18518ccf</td></tr>
+<tr>
+<td title='com.api.test.loginasQC.loginAPITest()'><b>loginAPITest</b><br>Test class: com.api.test.loginasQC<br>Test method: login api request</td>
+<td></td>
+<td>0</td>
+<td>com.api.test.loginasQC@659eef7</td></tr>
+<tr>
+<td title='com.api.test.LoginasEngJoblist.LoginasEngjoblistTest()'><b>LoginasEngjoblistTest</b><br>Test class: com.api.test.LoginasEngJoblist<br>Test method: joblist after login as Engineer</td>
+<td></td>
+<td>1</td>
+<td>com.api.test.LoginasEngJoblist@768ccdc5</td></tr>
+<tr>
+<td title='com.api.test.LoginasfdAndreadyfordelivery.loginAPITest()'><b>loginAPITest</b><br>Test class: com.api.test.LoginasfdAndreadyfordelivery<br>Test method: login api request</td>
+<td></td>
+<td>0</td>
+<td>com.api.test.LoginasfdAndreadyfordelivery@55787112</td></tr>
+<tr>
+<td title='com.api.test.RepairComplete.createjobTest()'><b>createjobTest</b><br>Test class: com.api.test.RepairComplete<br>Test method: Repair Complete<br>Parameters: org.testng.TestRunner@7b44bfb8</td>
+<td></td>
+<td>0</td>
+<td>com.api.test.RepairComplete@10650953</td></tr>
+<tr>
+<td title='com.api.test.MappedEngineerUnderSupervisorITestContest.MappedEngineerUnderSupervisor()'><b>MappedEngineerUnderSupervisor</b><br>Test class: com.api.test.MappedEngineerUnderSupervisorITestContest<br>Test method: list of mapped enginneer under the supervisor for that specific location<br>Parameters: org.testng.TestRunner@7b44bfb8</td>
+<td></td>
+<td>0</td>
+<td>com.api.test.MappedEngineerUnderSupervisorITestContest@46f699d5</td></tr>
+<tr>
+<td title='com.api.test.LoginasEngMaster.createjobTest()'><b>createjobTest</b><br>Test class: com.api.test.LoginasEngMaster<br>Test method: Master details</td>
+<td></td>
+<td>0</td>
+<td>com.api.test.LoginasEngMaster@4c6daf0</td></tr>
+<tr>
+<td title='com.api.test.Delivertothecustomer.DelivertothecustomerTest()'><b>DelivertothecustomerTest</b><br>Test class: com.api.test.Delivertothecustomer<br>Test method: login api request<br>Parameters: org.testng.TestRunner@7b44bfb8</td>
+<td></td>
+<td>0</td>
+<td>com.api.test.Delivertothecustomer@1cd201a8</td></tr>
+<tr>
+<td title='com.api.test.Dashboard_Count.dashBoardCount()'><b>dashBoardCount</b><br>Test class: com.api.test.Dashboard_Count<br>Test method: dashboradcount</td>
+<td></td>
+<td>0</td>
+<td>com.api.test.Dashboard_Count@9bd0fa6</td></tr>
+<tr>
+<td title='com.api.test.UserdetailsAPIrequest.Userdetails()'><b>Userdetails</b><br>Test class: com.api.test.UserdetailsAPIrequest<br>Test method: userdetails</td>
+<td></td>
+<td>0</td>
+<td>com.api.test.UserdetailsAPIrequest@74e47444</td></tr>
+</table><p>
+</body>
+</html>

@@ -1,0 +1,11 @@
+name: Suite
+configFailurePolicy: skip
+tests:
+  - name: Test
+  classes:
+    - com.api.test.CreateJobITestContext
+    - com.api.test.MappedEngineerUnderSupervisorITestContest
+    - com.api.test.AssignjobtoEngineer
+    - com.api.test.RepairComplete
+    - com.api.test.qccompleted
+
