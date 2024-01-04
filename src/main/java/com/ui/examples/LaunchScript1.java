@@ -25,7 +25,7 @@ public class LaunchScript1 {
 		By userNameTextBoxLocator = By.id("username"); //by.id is a locator//locator is a way to decide webdriver to find the element
 		WebElement userNameTextBoxWebElement = wd.findElement(userNameTextBoxLocator); //once element is foundit will return web  element.
 		userNameTextBoxWebElement.clear();
-		userNameTextBoxWebElement.sendKeys("iamsup");
+		userNameTextBoxWebElement.sendKeys("iamsup"); 
 
 		By passwordTextBoxLocator = By.id("password");
 		WebElement passwordTextBoxWebElement = wd.findElement(passwordTextBoxLocator);
