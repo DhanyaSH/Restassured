@@ -1,8 +1,7 @@
 package com.utility;
 
 
-
-import static com.utility.TestUtility.getTokenFor;
+import java.util.function.Predicate;
 import static io.restassured.RestAssured.given;
 import org.testng.ITestContext;
 import java.io.File;
@@ -30,11 +29,17 @@ import com.api.pojo.CustomerProduct;
 import com.api.pojo.LoginRequestPOJO;
 import com.api.pojo.Problem;
 import com.api.pojo.RepairCompletePojo;
-
+import com.github.javafaker.DateAndTime;
 import com.github.javafaker.Faker;
+import com.github.javafaker.IdNumber;
+import com.github.javafaker.Number;
+import com.github.javafaker.PhoneNumber;
 import com.google.gson.Gson;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
+import com.ui.filters.imeiFilter;
+import com.ui.pojo.CreatejobPojo;
+import com.ui.pojo.DashboardTablePojo;
 
 import freemarker.core.ReturnInstruction.Return;
 import io.restassured.http.Header;
@@ -42,17 +47,26 @@ import io.restassured.mapper.ObjectMapper;
 
 public class TestUtility {
 
-//	public static int job_id;
-//	public static int engineer_id;
-//
-//	public static AssigntoEngineerPOJO getjobidemployeeid() {
-//		AssigntoEngineerPOJO jobidemployeeid = new AssigntoEngineerPOJO(TestUtility.job_id,TestUtility.engineer_id);
-//		
-//		return jobidemployeeid;
-//	
-//	}
-//	
+	public static int job_id;
+	public static int engineer_id;
 
+	public static AssigntoEngineerPOJO getjobidemployeeid() {
+		AssigntoEngineerPOJO jobidemployeeid = new AssigntoEngineerPOJO(TestUtility.job_id,TestUtility.engineer_id);
+		
+		return jobidemployeeid;
+		}
+	
+	
+	
+	
+	
+	
+
+	/**
+	 * utility method for reading the excel file to pass data to the data provider method
+	 * @return String [][]
+	 * @throws IOException
+	 */
 	public static String[][] readExcelFile() throws IOException {
 
 		XSSFWorkbook myWorkbook = new XSSFWorkbook(System.getProperty("user.dir") + "//testData//LoginExcel.xlsx");
@@ -65,7 +79,7 @@ public class TestUtility {
 
 		String myData[][] = new String[lastIndexOfRow][totalNumberOfCols];
 		XSSFRow myRow;
-		XSSFCell myCell;
+     	XSSFCell myCell;
 		for (int rowIndex = 1; rowIndex <= lastIndexOfRow; rowIndex++) {
 			for (int colIndex = 0; colIndex < totalNumberOfCols; colIndex++) {
 				myRow = mySheet.getRow(rowIndex);
@@ -78,7 +92,14 @@ public class TestUtility {
 
 		return myData;
 	}
+	
+	
 
+	/**
+	 * it will be used in the API request to pass the JSON body
+	 * @param pojo
+	 * @return JSON representation of the POJO in string format
+	 */
 	public static String getJsonObject(Object pojo) {
 		Gson gson = new Gson();
 		String jsonData = gson.toJson(pojo);
@@ -116,7 +137,7 @@ public class TestUtility {
 		Iterator<String[]> dataIterator = dataList.iterator();
 
 		dataIterator.next(); // oth retrived but i will not store
-		return dataIterator;
+	return dataIterator;
 
 	}
 
@@ -172,7 +193,63 @@ public class TestUtility {
 		System.out.println(formateddate);
 		return formateddate;
 	}
+
+	public static CreatejobPojo createFakeData() {
+		Faker faker = new Faker();
+		String fName = faker.name().name();
+///	CreatejobPojo data = new CreatejobPojo("Google","Nexus 2",faker.name().firstName(),faker.name().lastName(),faker.internet().emailAddress());
+        String imei = faker.numerify("12345678912345");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-YYYY");
+        String  dateString = sdf.format(faker.date().birthday());
+    
+         String contactNumber = faker.numerify("9446423672");
+         String flatno  = faker.numerify("89");
+          String pincode = faker.numerify("67#####");
+        
+		CreatejobPojo data = new CreatejobPojo("Google", "Nexus 2","Nexus 2 blue",imei,dateString,"In Warrenty","Poor battery life",faker.name().firstName(),
+				faker.name().firstName(), faker.name().lastName(), contactNumber, faker.internet().emailAddress(),flatno,
+				faker.name().name(), faker.name().name(), faker.name().name(),
+				faker.name().name(), faker.name().name(),faker.name().name(),pincode);
+
+		return data;
 	
 
 }
+	
+//search something from collection
+	
+public static boolean  searchEntryInList(List<DashboardTablePojo> dataList,DashboardTablePojo data) {
 
+Iterator<DashboardTablePojo> dataIterator = dataList.iterator();
+boolean status = false;
+while(dataIterator.hasNext()) {
+DashboardTablePojo datafromTable = dataIterator.next();
+System.out.println(datafromTable );
+System.out.println(data);
+if(datafromTable.equals(data))
+{
+status = true;
+
+}else 
+{
+status = false;
+
+}
+}
+return status;
+}
+
+//compare with stream
+
+public static boolean  searchEntryInList(List<DashboardTablePojo> dataList,String imeiNumber) {
+	 imeiFilter Filter = new  imeiFilter(imeiNumber);
+Object[] data = dataList.stream().filter( Filter).toArray();
+if(data.length >1) {
+	System.out.println("found");
+	return true;
+}else {
+	return false;
+}
+
+}
+}

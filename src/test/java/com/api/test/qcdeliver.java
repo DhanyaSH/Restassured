@@ -11,12 +11,14 @@ import java.io.File;
 
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.api.pojo.AssigntoEngineerPOJO;
 import com.api.pojo.jobidpojo;
 
 import io.restassured.http.Header;
+@Listeners(com.listeners.MyTestListener.class)
 
 public class qcdeliver {
 	private Header h1 ;
@@ -32,7 +34,7 @@ public class qcdeliver {
 		 h2 = new Header("Authorization", getTokenFor("qc"));
 		
 	}
-	@Test(description = "test create job api requests generates job number", groups = {"sanity", "smoke","e2e"})
+	@Test(description = "test create job api requests generates job number", groups = {"e2e"})
 	
 	public void createjobTest() {
 				

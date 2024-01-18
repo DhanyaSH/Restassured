@@ -7,7 +7,7 @@
        <class name="com.api.test.MappedEngineerUnderSupervisorITestContest"/>
        <class name="com.api.test.AssignjobtoEngineer"/>
          <class name="com.api.test.RepairComplete"/>
-             <class name="com.api.test.qccompleted"/>
+             <class name="com.api.test.QCcompleted"/>
               <class name="com.api.test.Delivertothecustomer"/>
     </classes>
   </test> <!-- Test -->

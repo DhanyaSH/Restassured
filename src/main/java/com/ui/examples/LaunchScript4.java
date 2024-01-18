@@ -10,6 +10,10 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import com.aventstack.extentreports.gherkin.model.Then;
+
+import io.opentelemetry.sdk.metrics.data.Data;
+
 public class LaunchScript4 {
 
 	public static void main(String[] args) throws IOException {
@@ -19,11 +23,13 @@ public class LaunchScript4 {
 		Loginpage page = new Loginpage(wd);
 
 		page.doLogin("iamfd", "password").goTocreateJobPage().createJob();
-		// TAKE SCREEN SHORT
+		// TAKE SCREEN SHORT in webdriver
 		TakesScreenshot takeScreenshot = (TakesScreenshot) wd; // typecasting .your webdriver got convertd to takescreenshort(convert the session which we have and have webdriver refrence created)
-		//
+		//took scrrenshot
 		File screenShotData = takeScreenshot .getScreenshotAs(OutputType.FILE);	 //dumb this data to file
-        File myFile = new File(System.getProperty("user.dir")+"//abc.png");
+        //data available in binary format now
+		File myFile = new File(System.getProperty("user.dir")+"//abc.png");
+//		Then thisThen Data needdsData to be dumbed in to a File .so we r creatinga file in my directory.file name is abc.png
         myFile.createNewFile();
         FileUtils.copyFile(screenShotData, myFile); //apache common
 		

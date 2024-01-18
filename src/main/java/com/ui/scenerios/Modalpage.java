@@ -12,6 +12,7 @@ public class Modalpage extends BrowserUtil {
 
 	public Modalpage(WebDriver wd) {
 		super(wd);
+		this.wd = wd;
 		// TODO Auto-generated constructor stub
 	}
 

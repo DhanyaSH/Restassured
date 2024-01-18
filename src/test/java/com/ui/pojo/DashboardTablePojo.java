@@ -21,7 +21,10 @@ public DashboardTablePojo(String oEM, String job_Number, String imei, String pro
 	Warranty_Status = warranty_Status;
 	Action_Status = action_Status;	
 }
-
+public DashboardTablePojo(String job_Number) {
+	super();
+	Job_Number = job_Number;
+}
 public String getOEM() {
 	return OEM;
 }

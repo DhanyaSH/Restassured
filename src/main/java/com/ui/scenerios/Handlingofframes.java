@@ -23,7 +23,7 @@ public class Handlingofframes {
 	WebElement body =   wd.findElement(bodyLocator);
 	body.sendKeys("abc");
 	wd.switchTo().parentFrame(); //exit from child page it will switch to parent page
-	System.out.println(headingElement.getText());
+	System.out.println(headingElement.getText()); 
 	
 	
 	

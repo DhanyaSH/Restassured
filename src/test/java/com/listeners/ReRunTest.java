@@ -3,7 +3,8 @@ package com.listeners;
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
 
-public class ReRunTest implements IRetryAnalyzer{
+public class ReRunTest implements IRetryAnalyzer{ //Dynamic
+//	100 test executed,5 test passed
 public static final int MAX_COUNT = 3;
 public static  int count = 1;
 

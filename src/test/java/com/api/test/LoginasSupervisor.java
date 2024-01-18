@@ -32,7 +32,7 @@ public class LoginasSupervisor {
 	loginassup = new LoginasSupervisorPojo ("iamsup","password");
 	}
 	
-	@Test(description = "Login as Supervisor", groups = {"sanity"})
+	@Test(description = "Login as Supervisor", groups = {"e2e"})
 	
 	public void LoginAsSpervisor() {
 		 String token =	  given()

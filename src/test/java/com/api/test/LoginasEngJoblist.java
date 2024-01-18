@@ -10,9 +10,11 @@ import static org.hamcrest.Matchers.lessThan;
 
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import io.restassured.http.Header;
+@Listeners(com.listeners.MyTestListener.class)
 
 public class LoginasEngJoblist {
 
@@ -31,7 +33,7 @@ public class LoginasEngJoblist {
 	}
 	
 
-	@Test(description = "joblist after login as Engineer", groups = {"sanity", "smoke","e2e"})
+	@Test(description = "joblist after login as Engineer", groups = {"e2e"})
 	
 	public void LoginasEngjoblistTest() {
 		// TODO Auto-generated method stub

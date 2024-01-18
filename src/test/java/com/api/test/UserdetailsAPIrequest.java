@@ -18,6 +18,7 @@ import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import io.restassured.http.Header;
@@ -25,6 +26,7 @@ import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+@Listeners(com.listeners.MyTestListener.class)
 
 public class UserdetailsAPIrequest {
 	private Header myHeader;
@@ -36,16 +38,17 @@ public class UserdetailsAPIrequest {
 
 	
 	File jsonSchemaFile = new File (System.getProperty("user.dir")+ "//src//test//resources//responseSchemas//GetUserdetails.json");
-	@BeforeMethod
 	
-	public void setUp() {
-	 myHeader = new Header("Authorization",getTokenFor("fd"));
+	@Test(description = "userdetails", groups = {"e2e"})
+	
+//	@BeforeMethod
+//	public void setUp() {
+	
 	 
-}
+//}
 	
-	@Test(description = "userdetails", groups = {"smoke","sanity"})
-
 	public void Userdetails() { 
+	myHeader = new Header("Authorization",getTokenFor("fd"));
 	Response ds = given()
 		           .header(myHeader)
 		      .and()     

@@ -1,5 +1,7 @@
 /target/
 /test-output/
 /report/
-/screenshots/
+/screenshot/*
+
+
 

@@ -7,9 +7,11 @@ import static org.hamcrest.Matchers.equalTo;
 
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import io.restassured.http.Header;
+@Listeners(com.listeners.MyTestListener.class)
 
 public class PendingjobstoAssign {
 	private Header h1 ;
@@ -30,7 +32,7 @@ public class PendingjobstoAssign {
 	}
 	
 
-	@Test(description = "pending jobs to assign to engineer", groups = {"sanity", "smoke","e2e"})
+	@Test(description = "pending jobs to assign to engineer", groups = {"e2e"})
 public void MappedEngineerUnderSupervisor() {
 		
 		int id1 =	given()

@@ -8,18 +8,18 @@ import org.openqa.selenium.WebDriver;
 
 import com.ui.pojo.DashboardTablePojo;
 import com.utility.BrowserUtil;
+import com.utility.TestUtility;
 
 import groovyjarjarantlr4.v4.parse.ANTLRParser.finallyClause_return;
 
 public class Dashboardpage extends BrowserUtil {
 
 	private static final By CREATE_JOB_LINK_LOCATOR = By.xpath("//span[contains(text(),\"Create Job\")]/../../..");
-	private static final By USERNAME_ICON_LOCATOR = By
-			.xpath("//mat-icon[@data-mat-icon-name=\"user-circle\"]/../../..");
+	private static final By USERNAME_ICON_LOCATOR = By.xpath("//mat-icon[@data-mat-icon-name=\"user-circle\"]/../../..");
 	private static final By USERNAME_TEXT_LOCATOR = By.xpath("//span[contains(text(),\"Signed in as\")]/../span[2]");
 	private static final By CREATED_JOB_LOCATOR = By.xpath("//div[contains(text(),\"Created today\")]/../div/button");
 	private static final By TABLE_LOCATOR = By.tagName("mat-table"); // only onetable so you can use tagname
-	private static final By TABLE_ROW_LOCATOR = By.xpath(".//mat-row");
+	private static final By TABLE_ROW_LOCATOR = By.xpath(".//mat-row"); //for chaninng we need to use xpath
 	private static final By TABLE_CELL_LOCATOR = By.xpath(".//mat-cell");
 
 	private WebDriver wd;
@@ -43,34 +43,20 @@ public class Dashboardpage extends BrowserUtil {
 		return createJobPage;
 	}
 
-	public List<DashboardTablePojo> getDetailsFromtheTable() {
-		clickOn(CREATED_JOB_LOCATOR);
-		List<DashboardTablePojo> dataList = getListOfElements(TABLE_LOCATOR, TABLE_ROW_LOCATOR, TABLE_CELL_LOCATOR);
-		Iterator<DashboardTablePojo> dataIterator = dataList.iterator();
-		while (dataIterator.hasNext()) {
-			System.out.println(dataIterator.next());
-
-		}
-		return dataList;
-	}
+//	public List<DashboardTablePojo> getDetailsFromtheTable() {
+//		clickOn(CREATED_JOB_LOCATOR);
+//		List<DashboardTablePojo> dataList = getListOfElements(TABLE_LOCATOR, TABLE_ROW_LOCATOR, TABLE_CELL_LOCATOR);
+//		Iterator<DashboardTablePojo> dataIterator = dataList.iterator();
+//		while (dataIterator.hasNext()) {
+//			System.out.println(dataIterator.next());
+//
+//		}
+//		return dataList;
+//	}
 
 	public boolean verifyIfTableEnteriesArePresent (DashboardTablePojo data) {
 		clickOn(CREATED_JOB_LOCATOR);
 		List<DashboardTablePojo> dataList = getListOfElements(TABLE_LOCATOR, TABLE_ROW_LOCATOR, TABLE_CELL_LOCATOR);
-		Iterator<DashboardTablePojo> dataIterator = dataList.iterator();
-        boolean status = false;
-        while(dataIterator.hasNext()) {
-	    DashboardTablePojo datafromTable = dataIterator.next();
-	    if(datafromTable.equals(data))
-	{
-		status = true;
-		
-}else 
-     {
-		status = false;
-		
-	}
-}
-  return status;
+		return TestUtility.searchEntryInList(dataList, data);
 	}
 }

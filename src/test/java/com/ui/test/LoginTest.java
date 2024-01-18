@@ -16,14 +16,19 @@ public class LoginTest {
 
 	@BeforeMethod(description = "Setup the Browser and load the page")
 	public void setup() {
-		wd = new FirefoxDriver();
+		wd = new ChromeDriver();
 		page = new Loginpage(wd);
 	}
 
-	@Test()
+	@Test(description = "login api request",groups = {"sanity"})
 	public void testLoginForWebSite() {
-
-		Assert.assertEquals(page.doLogin("iamfd", "password").getUserName(), "iamfd");
+//    page.doLogin("iamfd", "password").goTocreateJobPage().createJob(null, null);
+//		String UserName = page.doLogin("iamfd", "password").getUserName();
+//		System.out.println(UserName);
+		
+		Assert.assertEquals(page.doLogin("iamfd","password").getUserName(),"iamfd");
+    
+    
 
 	}
 }

@@ -8,6 +8,7 @@ import static io.restassured.RestAssured.given;
 
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.api.pojo.Problem;
@@ -15,6 +16,7 @@ import com.api.pojo.RepairCompletePojo;
 import com.utility.TestUtility;
 
 import io.restassured.http.Header;
+@Listeners(com.listeners.MyTestListener.class)
 
 public class RepairComplete {
 
@@ -36,7 +38,7 @@ public class RepairComplete {
 	}
 	
 
-	@Test(description = "Repair Complete", groups = {"sanity", "smoke","e2e"})
+	@Test(description = "Repair Complete", groups = {"e2e"})
 	public void createjobTest(ITestContext context) {
 		
 		int job_id =(int) context.getSuite().getAttribute("job_id");

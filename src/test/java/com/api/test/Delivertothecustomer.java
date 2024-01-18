@@ -21,14 +21,15 @@ public class Delivertothecustomer {
 
 		baseURI = "http://139.59.91.96:9000/v1";
 	}
-
+	@Test(description = "login api request", groups = { "e2e" }, retryAnalyzer = com.listeners.ReRunTest.class)
+	
 	@BeforeMethod
 	public void setUp() {
 		h1 = new Header("Content-Type", "application/json");
 		h2 = new Header("Authorization", getTokenFor("fd"));
 	}
 
-	@Test(description = "login api request", groups = { "sanity" }, retryAnalyzer = com.listeners.ReRunTest.class)
+	
 	public void DelivertothecustomerTest(ITestContext context) {
 	
 	int job_id =(int) context.getSuite().getAttribute("job_id");

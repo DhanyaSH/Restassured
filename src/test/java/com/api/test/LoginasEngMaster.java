@@ -8,9 +8,11 @@ import static io.restassured.RestAssured.given;
 
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import io.restassured.http.Header;
+@Listeners(com.listeners.MyTestListener.class)
 
 public class LoginasEngMaster {
 
@@ -33,7 +35,7 @@ public class LoginasEngMaster {
 	}
 	
 
-	@Test(description = "Master details", groups = {"sanity", "smoke","e2e"})
+	@Test(description = "Master details", groups = {"e2e"})
 	
 	public void createjobTest() {
 		// TODO Auto-generated method stub

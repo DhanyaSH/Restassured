@@ -9,6 +9,7 @@ import java.util.Map;
 import static com.utility.TestUtility.*;
 import org.testng.TestNG.*;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.annotations.Test.*;
 
@@ -18,6 +19,7 @@ import io.restassured.http.Header;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseBodyExtractionOptions;
+@Listeners(com.listeners.MyTestListener.class)
 
 public class Master {
 	private Header h1;
@@ -36,7 +38,7 @@ public class Master {
 
 	}
 
-	@Test(description = "Masterdata",groups = {"sanity","e2e"})
+	@Test(description = "Masterdata",groups = {"e2e"})
 public void masterData() {
 
   Object data =	given()

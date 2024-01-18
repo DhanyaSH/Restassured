@@ -7,9 +7,11 @@ import static org.hamcrest.Matchers.equalTo;
 
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import io.restassured.http.Header;
+@Listeners(com.listeners.MyTestListener.class)
 
 public class MappedEngineerUnderSupervisorITestContest {
 	private Header h1;
@@ -18,16 +20,17 @@ public class MappedEngineerUnderSupervisorITestContest {
 		baseURI = "http://139.59.91.96:9000/v1";
 		
 	}
+	
 	@BeforeMethod
 	public void SetUp1() {
-		h1 = new Header("Content-type", "application/json");
-		h3 = new Header("Authorization",getTokenFor("sup"));	
 		
+		h1 = new Header("Content-type", "application/json");
+		h3 = new Header("Authorization",getTokenFor("sup"));
 
 	}
-@Test(description = "list of mapped enginneer under the supervisor for that specific location", groups = {"smoke","sanity"})
 
-	
+
+	@Test(description = "list of mapped enginneer under the supervisor for that specific location", groups = {"smoke"})		
 	public void MappedEngineerUnderSupervisor(ITestContext context) {
 		
 		int id1 =	given()

@@ -5,6 +5,7 @@ import static org.hamcrest.Matchers.*;
 import org.json.JSONArray;
 import org.testng.TestNG.*;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import io.restassured.http.Header;
@@ -14,6 +15,7 @@ import io.restassured.response.ResponseBody;
 import com.api.pojo.Data;
 import com.jayway.jsonpath.JsonPath.*;
 import static com.utility.TestUtility.*;
+@Listeners(com.listeners.MyTestListener.class)
 
 
 public class Dashboard_Count {
@@ -23,11 +25,14 @@ public class Dashboard_Count {
 		baseURI = "http://139.59.91.96:9000/v1";
 	}
 	
-	@BeforeMethod
+@Test(description = "dashboradcount",groups = {"e2e"})	
+ @BeforeMethod
   public void SetUP() {
   myHeader = new Header("Authorization",getTokenFor("fd"));
+  
 	}
-	@Test(description = "dashboradcount",groups = {"sanity"})
+		
+
   public void dashBoardCount() {
   
 	String value          =   given()

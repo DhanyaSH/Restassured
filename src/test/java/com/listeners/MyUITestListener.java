@@ -44,6 +44,8 @@ public class MyUITestListener implements ITestListener {
 		// TODO Auto-generated method stub
 		  System.out.println("******************Failure****************");
 		  extentTest.fail("test failed");
+		  //attach screen shot to reports
+		  
 		  extentTest.addScreenCaptureFromPath(BrowserUtil.takeScreenShot(result.getMethod().getMethodName()));
 		 
 	}

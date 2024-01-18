@@ -29,18 +29,20 @@ public class LoginAPIrequest3 {
 	
 	File jsonShemaFile = new File(System.getProperty("user.dir")+"//src//test//resources//responseSchemas//JsonResponseSchema.json");
 	
-	@BeforeMethod
+	
+	
+	@BeforeMethod(description = "Intializing the headers", alwaysRun = true)
 	public void setUp() {
-    header = new Header("Content-Type","application/json");
-    loginpojo = new LoginRequestPOJO ("iamfd","password");
+		 header = new Header("Content-Type","application/json");
+		 loginpojo = new LoginRequestPOJO ("iamfd","password");
+
 	}
 	
+//	retryAnalyzer = com.listeners.ReRunTest.class
 	
-	@Test(description = "login api request",groups ={"sanity"},
-	       retryAnalyzer = com.listeners.ReRunTest.class)
-	
-	public  void loginAPITest() {
-   String token =    given()
+	@Test(description = "login api request",groups = {"sanity"})
+	public  void loginAPITest() {	
+    String token =    given()
 			             .header(header)
 			         .and()
 				          .body(getJsonObject(loginpojo))

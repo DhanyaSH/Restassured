@@ -9,11 +9,13 @@ import static org.hamcrest.Matchers.lessThan;
 import java.io.File;
 
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.api.pojo.LoginRequestPOJO;
 
 import io.restassured.http.Header;
+@Listeners(com.listeners.MyTestListener.class)
 
 public class LoginasfdAndreadyfordelivery {
 
@@ -31,7 +33,7 @@ public class LoginasfdAndreadyfordelivery {
 		h2 = new Header("Authorization", getTokenFor("fd"));
 	}
 
-	@Test(description = "login api request", groups = { "sanity" }, retryAnalyzer = com.listeners.ReRunTest.class)
+	@Test(description = "login api request", groups = { "e2e" }, retryAnalyzer = com.listeners.ReRunTest.class)
 
 	public void loginAPITest() {
 		given().header(h1).and().header(h2).and().log().all().when().get("fd/readyfordelivery").then().log().all()

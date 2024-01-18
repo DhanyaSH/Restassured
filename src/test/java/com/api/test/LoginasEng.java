@@ -9,6 +9,7 @@ import static org.hamcrest.Matchers.lessThan;
 import java.io.File;
 
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.api.pojo.LoginAsEngPojo;
@@ -16,6 +17,7 @@ import com.api.pojo.LoginRequestPOJO;
 
 import io.restassured.http.Header;
 import io.restassured.module.jsv.JsonSchemaValidator;
+@Listeners(com.listeners.MyTestListener.class)
 
 public class LoginasEng {
 	
@@ -34,7 +36,7 @@ public class LoginasEng {
 	}
 	
 	
-	@Test(description = "login api request",groups ={"sanity"},
+	@Test(description = "login api request",groups ={"e2e"},
 	       retryAnalyzer = com.listeners.ReRunTest.class)
 	
 	public  void loginAPITest() {

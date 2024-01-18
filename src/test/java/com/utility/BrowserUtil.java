@@ -36,7 +36,7 @@ public abstract class BrowserUtil {
 		super();
 		this.wd = wd;
 		screenshotWd = wd;
-		wait = new WebDriverWait(wd, Duration.ofSeconds(30));
+		wait = new WebDriverWait(wd, Duration.ofSeconds(100));
 	}
 
 	public void getToWebSite(String url) { // wrapper method
@@ -50,7 +50,9 @@ public abstract class BrowserUtil {
 	public void enterText(By locator, String texttoEnter) {
 //		sleepFor(4);
 //		WebElement element = wd.findElement(locator);
+		                                     //explicit wait
 		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+		//wait is used to synchronized.ExpectedConditionsis a class which have static method.textbox need to be visible.
 		element.clear();
 		element.sendKeys(texttoEnter);
 
@@ -85,13 +87,16 @@ public abstract class BrowserUtil {
 		TakesScreenshot takesScreenshot = (TakesScreenshot) screenshotWd; // TC
 		File screenShotData = takesScreenshot.getScreenshotAs(OutputType.FILE); // 1010111 111111
 		File reportDirectory = new File(System.getProperty("user.dir") + "/screenshots");
+		
+		//screenshot folder is created in the directory
 		try {
 			FileUtils.forceMkdir(reportDirectory);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String pathname = System.getProperty("user.dir") + "/screenshots//" + testName + ".png";
+		String pathname = System.getProperty("user.dir") + "/screenshots//" + testName + ".png"; 
+		//path name
 		File myFile = new File(pathname);
 		try {
 			myFile.createNewFile();
@@ -139,7 +144,7 @@ public abstract class BrowserUtil {
 	public void selectFromdropDown(By dropDownlocator, String value) {
 		sleepFor(5);
 		clickOn(dropDownlocator);
-		By oem_data_locator = By.xpath("//span[contains(text(),\"" + value + "\")]/..");// dynamic
+		By oem_data_locator = By.xpath("//span[contains(text(),\"" + value + "\")]/..");// dynamic value
 		clickOn(oem_data_locator);
 	}
 

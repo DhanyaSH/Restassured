@@ -18,7 +18,7 @@
 	import io.restassured.module.jsv.JsonSchemaValidator;
 	import io.restassured.response.Response;
 	import io.restassured.specification.RequestSpecification;
-	@Listeners(com.listeners.MyTestListener.class)
+@Listeners(com.listeners.MyTestListener.class)
 
 	public class loginasQC {
 		private Header header;
@@ -37,7 +37,7 @@
 		}
 		
 		
-		@Test(description = "login api request",groups ={"sanity"},
+		@Test(description = "login api request",groups ={"e2e"},
 		       retryAnalyzer = com.listeners.ReRunTest.class)
 		
 		public  void loginAPITest() {
