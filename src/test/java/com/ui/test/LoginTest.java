@@ -26,7 +26,7 @@ public class LoginTest {
 //		String UserName = page.doLogin("iamfd", "password").getUserName();
 //		System.out.println(UserName);
 		
-		Assert.assertEquals(page.doLogin("iamfd","password").getUserName(),"iamfd");
+		Assert.assertEquals(page.doLogin("iamfd","password").getUserName(),"iamsup");
     
     
 
